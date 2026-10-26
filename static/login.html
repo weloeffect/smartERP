@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101814">
+  <title>smartERP — Sign in</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/theme.css">
+  <link rel="stylesheet" href="/static/auth.css">
+  <script src="/static/auth.js" defer></script>
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <a class="brand auth-brand" href="/login" aria-label="smartERP"><span class="brand-mark" aria-hidden="true">S<span></span></span>smartERP<span class="brand-dot">.</span></a>
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div class="auth-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></div>
+      <h1 id="auth-title">Welcome back</h1>
+      <p class="auth-description" id="auth-description" hidden>Sign in to your workspace.</p>
+      <p class="auth-error" id="auth-error" role="alert" hidden></p>
+      <p class="auth-loading" id="auth-loading" role="status">Getting ready…</p>
+      <form id="auth-form" hidden>
+        <label for="username">Username</label>
+        <input id="username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" minlength="3" maxlength="40" pattern="[A-Za-z0-9_.-]+" title="3–40 letters, numbers, dots, underscores or hyphens" required>
+        <label for="password">Password</label>
+        <div class="auth-password"><input id="password" name="password" type="password" autocomplete="current-password" maxlength="128" aria-describedby="password-hint" required><button type="button" id="toggle-password" aria-controls="password" aria-pressed="false">Show</button></div>
+        <p class="auth-hint" id="password-hint" hidden>Use at least 8 characters. A few memorable words work well.</p>
+        <div id="confirm-field" hidden><label for="confirm-password">Confirm password</label><input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" maxlength="128"></div>
+        <button type="submit" class="auth-submit" id="auth-submit">Sign in</button>
+      </form>
+      <noscript><p class="auth-error">Enable JavaScript to sign in to smartERP.</p></noscript>
+    </section>
+  </main>
+</body>
+</html>

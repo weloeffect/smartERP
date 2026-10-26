@@ -1,0 +1,131 @@
+/* Dark forest palette shared by the dashboard, records, and assistant. */
+:root {
+  color-scheme: dark;
+  --bg: #101814;
+  --surface: #18231d;
+  --raised: #203027;
+  --ink: #e5ede7;
+  --muted: #a1b1a5;
+  --line: #304237;
+  --green: #b2d69e;
+  --pale: #263c2d;
+  --amber: #e2b775;
+  --danger: #f0aa98;
+}
+
+body { background: var(--bg); color: var(--ink); }
+::selection { background: #456a48; color: #fff; }
+* { scrollbar-color: #4a6251 var(--bg); }
+.skip, .topbar { background: var(--surface); }
+.sidebar { background: #0c130f; border-right: 1px solid #27372c; }
+.brand-mark span { border-color: #0c130f; }
+.nav-label, .profile small, .profile-dots { color: var(--muted); }
+.nav-item { color: #b4c4b8; }
+.nav-item.active { background: #2a402f; color: #e1f2d8; }
+.nav-item:hover { background: #213527; color: #f3f7f1; }
+.profile { border-color: var(--line); }
+.avatar { background: #2e4634; color: #c8e1b7; }
+.panel, .metric { box-shadow: 0 4px 18px #00000012; }
+.metric-label, .metric-label > span, .metric-foot,
+.panel-header p, .eyebrow, .subtitle, .breadcrumb, .topbar-right,
+.composer-foot, .welcome > p, .suggestions small, .prompt-arrow,
+.detail-grid dt, .detail-note, .table-footer,
+.record-tip p, .data-footer, .page-footer { color: var(--muted); }
+.subtle-pill, .demo-pill { background: var(--raised); border-color: var(--line); color: var(--muted); }
+.small-dot.amber { background: var(--amber); }
+
+/* Dashboard controls and chart colors. */
+.dashboard-view-link { background: #263a2c; border-color: #405a43; color: #c9e3b8; box-shadow: 0 1px 3px #00000020; }
+.dashboard-view-link:hover { background: #324b36; border-color: #68855b; box-shadow: 0 3px 8px #00000025; }
+.dashboard-view-link:active { background: #3b5540; }
+.chart-axis { fill: var(--muted); }
+.chart-gridline { stroke: var(--line); }
+.sales-area { fill: #243d2c; }
+.sales-line { stroke: #add193; }
+.sales-point { fill: var(--surface); stroke: #bddda7; }
+.donut-track, .bar-track { stroke: #2c3e31; }
+.bar-track { fill: #2c3e31; stroke: none; }
+.invoice-paid { stroke: #91ba79; background: #91ba79; }
+.invoice-issued { stroke: #c5d3a6; background: #c5d3a6; }
+.invoice-overdue { stroke: #dbad6d; background: #dbad6d; }
+.invoice-draft { stroke: #929eb8; background: #929eb8; }
+.legend-row { border-color: var(--line); }
+.bar-fill { fill: #91b87d; }
+.low-stock-fill { fill: #dbad6d; }
+.stock-fill { background: #dbad6d; }
+.stock-threshold { stroke: #e0e8d9; }
+.threshold-key { border-color: #e0e8d9; }
+.bar-heading .stock-alert { color: var(--amber); }
+
+/* Records, filters, and detail dialogs. */
+.tabs button { color: var(--muted); }
+.tabs button:hover { color: var(--ink); }
+.tabs button[aria-selected=true] { color: #c0dfa9; border-color: #a6cc8e; }
+.search, .filters select, .filter-button { background: #131e17; border-color: #3a5141; color: var(--muted); }
+.search input::placeholder, .composer textarea::placeholder { color: #9aaa9c; }
+th { background: #203027; color: #b0c5ad; border-color: var(--line); }
+td { color: #c0cec1; border-color: #2a3b2f; }
+td:first-child, .amount { color: #d2e5c6; }
+td .secondary-text { color: var(--muted); }
+.records-panel tbody tr:hover { background: #1f3025; }
+.badge { background: #2c3830; color: #c4cec0; }
+.badge.confirmed, .badge.paid, .badge.fulfilled { background: #294231; color: #bedba7; }
+.badge.issued, .badge.low, .badge.overdue { background: #443720; color: #f0cd8d; }
+.badge.cancelled, .badge.expired, .badge.stale { background: #452e28; color: #efb4a3; }
+.badge.draft, .badge.pending { background: #2e354b; color: #c3ccec; }
+.table-footer button, .close-button, .secondary-button { border-color: #415b46; color: #c4d5b9; }
+.secondary-button:hover, .close-button:hover { background: var(--raised); }
+.record-tip { background: var(--raised); border-color: var(--line); }
+.record-tip strong, .record-tip button { color: var(--green); }
+dialog { background: var(--surface); border-color: #405744; box-shadow: 0 20px 100px #00000080; }
+dialog::backdrop { background: #030806b3; }
+
+/* Keep the assistant open against the page, with dark input and answer surfaces. */
+.assistant-panel { box-shadow: none; }
+.welcome h3 { color: #edf4e8; }
+.welcome-symbol { background: linear-gradient(145deg, #2b402e, #1c2e22); border-color: #496341; color: #c0dc9e; box-shadow: 0 6px 24px #00000025; }
+.assistant-icon, .prompt-icon, .message-avatar { background: #2b402e; border-color: #3a513a; color: #bdd89e; }
+.suggestions button { background: var(--surface); border-color: #344a3a; }
+.suggestions button:hover { background: #233629; border-color: #5b7950; }
+.composer-input { background: var(--surface); border-color: #486141; box-shadow: 0 3px 12px #00000020; }
+.composer-input:focus-within { border-color: #a4c78c; box-shadow: 0 0 0 2px #a4c78c20; }
+.composer button, .primary-button { background: #b2d19a; color: #162313; }
+.composer button:hover, .primary-button:hover { background: #c6e2b1; }
+.message.user .message-avatar { background: #304037; color: #d0dccb; }
+.message-label, .assistant-panel .message-label { color: #b4cd9f; }
+.message-text, .assistant-panel .message-text { color: #d0ddd0; }
+.message.user .message-text { color: var(--ink); }
+.assistant-panel .message.user .message-text { background: #293d2d; color: #e2eddb; }
+.message.error .message-text, .assistant-panel .message.error .message-text { color: var(--danger); }
+.thinking .message-text { color: var(--muted); }
+.answer-content h3, .answer-content h4, .answer-content h5, .answer-content h6 { color: #e1eed8; }
+.answer-content strong { color: #d0e9b8; }
+.answer-content li, .answer-content hr { border-color: var(--line); }
+.answer-content li::marker { color: #a9c58d; }
+.answer-content .answer-total { background: #253e2b; border-color: #9ec281; color: #d3ecc0; }
+.answer-content .answer-table-wrap { background: var(--surface); border-color: #3a5140; }
+.answer-content th { background: #263c2c; color: #c2d7b2; border-color: #3a5140; }
+.answer-content td { color: #cfdbca; border-color: #304135; }
+.answer-content tbody tr:nth-child(even) { background: #1d2d22; }
+.answer-content tbody tr:hover { background: #2a3e2e; }
+.answer-content .answer-note, .answer-content blockquote { color: #b3c2aa; }
+.answer-content .answer-note-icon { color: var(--amber); }
+.answer-content blockquote { border-color: #728d60; }
+.answer-content code, .answer-content pre { background: #24372a; color: #d0e4bb; }
+.answer-content pre code { background: none; }
+.answer-content a { color: #b9dca1; }
+.source-link, .assistant-panel .source-link { background: var(--raised); border-color: var(--line); color: var(--green); }
+.tool-activity { color: var(--muted); }
+.tool-activity pre { background: var(--raised); }
+.action-card { background: #1c2b20; border-color: #415e3c; }
+.action-card > p, .action-status { color: #b4c5a7; }
+.action-card .action-total { color: #c5dfa8; }
+.action-status.error { color: var(--danger); }
+.configuration-note, .notice.error { background: #362c20; border-color: #6a5335; color: #efd0a1; }
+.approval-note { background: var(--surface); color: var(--muted); }
+.toast { background: #304a35; border: 1px solid #57754d; color: #ecf4e4; }
+.profile > div { min-width: 0; }
+#profile-name { display: block; max-width: 125px; overflow: hidden; text-overflow: ellipsis; }
+.sign-out { margin: 16px 10px 0; padding: 9px 12px; border: 1px solid #344d3b; border-radius: 8px; color: #b8c9b4; font-size: 12px; text-align: center; }
+.sign-out:hover { background: #233629; color: #eef5e8; }
+@media(max-width:700px) { .sidebar { position: relative; } .sign-out { position: absolute; top: 14px; right: 18px; margin: 0; } }

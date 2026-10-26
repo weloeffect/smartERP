@@ -1,0 +1,33 @@
+INFO:     Started server process [12008]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     Started server process [27440]
+INFO:     Waiting for application startup.
+Terminating session: None
+Terminating session: None
+Processing request of type ListToolsRequest
+Terminating session: None
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+Terminating session: None
+Terminating session: None
+Processing request of type CallToolRequest
+Terminating session: None
+Processing request of type ListToolsRequest
+Terminating session: None
+Terminating session: None
+Terminating session: None
+Terminating session: None
+Terminating session: None
+Terminating session: None
+Terminating session: None
+Processing request of type CallToolRequest
+Terminating session: None
+Processing request of type ListToolsRequest
+Terminating session: None
+Terminating session: None
+Terminating session: None
+Processing request of type ListToolsRequest
+Terminating session: None

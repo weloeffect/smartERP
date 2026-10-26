@@ -1,0 +1,25 @@
+name: Verify
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.9.17"
+          python-version: "3.12"
+      - run: uv sync --locked
+      - run: uv run ruff check app tests migrations
+      - run: uv run pytest -q
+      - run: node --check static/app.js
+      - run: node --check static/answer-format.js
+      - run: node --check static/auth.js
+      - run: node --test tests/answer-format.test.cjs
+

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101814">
+  <title>smartERP — ERP Agent</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/theme.css">
+  <script src="/static/answer-format.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to workspace</a>
+  <aside class="sidebar" aria-label="Workspace navigation">
+    <a class="brand" href="/" aria-label="smartERP home"><span class="brand-mark" aria-hidden="true">S<span></span></span>smartERP<span class="brand-dot">.</span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <button class="nav-item active" data-nav="overview"><span aria-hidden="true">▦</span>Overview</button>
+      <button class="nav-item" data-nav="assistant"><span aria-hidden="true">✧</span>ERP Agent</button>
+      <button class="nav-item" data-nav="customers"><span aria-hidden="true">♧</span>Customers</button>
+      <button class="nav-item" data-nav="orders"><span aria-hidden="true">▤</span>Orders</button>
+      <button class="nav-item" data-nav="stock"><span aria-hidden="true">◇</span>Inventory</button>
+      <button class="nav-item" data-nav="invoices"><span aria-hidden="true">▧</span>Invoices</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="local-note" hidden><span class="connection-dot"></span>Local workspace<small>Fictional data. Real possibilities.</small></div>
+      <div class="profile"><span class="avatar" id="profile-initials">S</span><div><span id="profile-name">Your account</span><small>Workspace account</small></div></div>
+    </div>
+    <button type="button" class="sign-out" id="sign-out">Sign out</button>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar" hidden><div><span class="breadcrumb">Workspace</span><span class="slash">/</span><span id="current-page">Overview</span></div><div class="topbar-right" hidden><span class="demo-pill">DEMO</span><span class="topbar-divider"></span><span id="today-label">Europe/Paris</span></div></header>
+    <main id="main">
+      <section class="page-heading" hidden><div><p class="eyebrow" id="page-eyebrow">YOUR OPERATIONS, CONNECTED</p><h1 id="page-title" tabindex="-1">A clearer view of your business<span>.</span></h1><p class="subtitle" id="page-subtitle">Sales, balances, and stock. Your business at a glance.</p></div><a class="text-link" href="/health" target="_blank" rel="noopener" hidden><span id="connection-indicator" class="connection-dot checking"></span><span id="connection-label">Connecting to ERP</span><span aria-hidden="true">↗</span></a></section>
+
+      <div id="global-error" class="notice error" role="alert" hidden></div>
+      <section id="overview-view" aria-label="Overview">
+      <section class="metrics" aria-label="Business overview">
+        <article class="metric"><div class="metric-label">Customers<span aria-hidden="true">♧</span></div><div id="metric-customers" class="metric-value">—</div><div class="metric-foot">Across your workspace</div></article>
+        <article class="metric"><div class="metric-label">Sales orders<span aria-hidden="true">▤</span></div><div id="metric-orders" class="metric-value">—</div><div class="metric-foot">Confirmed, fulfilled & cancelled</div></article>
+        <article class="metric"><div class="metric-label">Outstanding invoices<span aria-hidden="true">↗</span></div><div id="metric-outstanding" class="metric-value">—</div><div class="metric-foot"><span class="small-dot amber"></span><span id="metric-overdue">Loading invoice balances</span></div></article>
+        <article class="metric"><div class="metric-label">Stock alerts<span aria-hidden="true">◇</span></div><div id="metric-stock" class="metric-value">—</div><div class="metric-foot"><span class="small-dot amber"></span>Products at or below reorder level</div></article>
+      </section>
+
+      <div class="dashboard-grid">
+        <article class="panel chart-panel"><header class="panel-header"><div><h2>Sales over time</h2><p hidden>Confirmed and fulfilled orders · EUR net</p></div><span class="subtle-pill" hidden>6 MONTHS</span></header><div class="chart-body"><div class="chart-summary"><strong id="sales-total">—</strong><span id="sales-period" hidden>Loading sales…</span></div><div id="sales-chart" class="sales-chart"><p class="chart-empty">Loading sales…</p></div></div></article>
+        <article class="panel chart-panel"><header class="panel-header"><div><h2>Invoice balances</h2><p hidden>All invoices, grouped by payment status · EUR net</p></div><button type="button" class="dashboard-view-link" data-go="invoices"><span>View invoices</span></button></header><div id="invoice-chart" class="chart-body invoice-chart"><p class="chart-empty">Loading invoice balances…</p></div></article>
+        <article class="panel chart-panel"><header class="panel-header"><div><h2>Top customers</h2><p hidden>Order value over the same 6 months · EUR net</p></div><button type="button" class="dashboard-view-link" data-go="customers"><span>View customers</span></button></header><div id="customer-chart" class="chart-body bar-chart"><p class="chart-empty">Loading customers…</p></div></article>
+        <article class="panel chart-panel"><header class="panel-header"><div><h2>Stock to watch</h2><p hidden>6 products closest to their reorder level</p></div><button type="button" class="dashboard-view-link" data-go="stock"><span>View inventory</span></button></header><div id="stock-chart" class="chart-body bar-chart"><p class="chart-empty">Loading stock…</p></div><div class="chart-foot"><span class="legend-mark stock-fill"></span>Available units<span class="threshold-key"></span>Reorder level</div></article>
+      </div>
+      </section>
+
+        <section class="panel assistant-panel" id="assistant-view" aria-labelledby="assistant-title" hidden>
+          <header class="panel-header" hidden><div class="panel-title-group"><span class="assistant-icon" aria-hidden="true">✧</span><div><h2 id="assistant-title">ERP Agent</h2><p>Connected to your business, through MCP</p></div></div><span class="subtle-pill" id="model-label" hidden><span class="small-dot"></span>QwenCloud</span></header>
+          <div id="configuration-note" class="configuration-note" hidden><strong>One step to enable chat</strong><span>Add your QwenCloud API key to <code>.env</code>, match the endpoint to your region and plan, and restart. Browsing and invoice previews are ready to use.</span></div>
+          <div class="chat-scroll" id="chat-scroll">
+            <div id="messages" role="log" aria-live="polite" aria-relevant="additions">
+              <div class="welcome" id="welcome"><div class="welcome-symbol" aria-hidden="true">✧</div><h3>What can I help you find?</h3><p hidden>Your customers, orders, inventory, and invoices.<br>One conversation, the whole picture.</p>
+                <div class="suggestions">
+                  <button data-prompt="Which invoices are overdue, and what is the total outstanding amount?"><span class="prompt-icon">↗</span><span>Stay on top of invoices<small>See what's overdue and outstanding</small></span><span class="prompt-arrow">↗</span></button>
+                  <button data-prompt="Which products are running low on available stock?"><span class="prompt-icon">◇</span><span>Check your stock levels<small>Find products that need attention</small></span><span class="prompt-arrow">↗</span></button>
+                  <button data-prompt="Who were our five biggest customers by order value last month?"><span class="prompt-icon">♧</span><span>Get to know your top customers<small>Explore last month's sales</small></span><span class="prompt-arrow">↗</span></button>
+                </div>
+              </div>
+            </div>
+            <div id="action-tray" aria-live="polite"></div>
+          </div>
+          <form id="chat-form" class="composer"><label for="question" class="sr-only">Ask ERP Agent</label><div class="composer-input"><textarea id="question" rows="2" maxlength="4000" placeholder="Ask anything about your business…" required></textarea><button id="send-button" type="submit" aria-label="Send question">↑</button></div><div class="composer-foot" hidden><span><span aria-hidden="true">⌘</span> Answers grounded in your ERP data</span><span>Enter to send</span></div></form>
+          <div class="approval-note" hidden><span aria-hidden="true">◈</span> You're in control. Invoice drafts always need your confirmation.</div>
+        </section>
+
+        <section class="panel records-panel" id="records-panel" aria-labelledby="records-title" hidden>
+          <header class="panel-header"><div><h2 id="records-title">The details behind the answers</h2><p>Explore your ERP records</p></div><span class="subtle-pill" hidden>EUR · net</span></header>
+          <div class="tabs" role="tablist" aria-label="ERP records">
+            <button role="tab" id="tab-orders" aria-selected="true" aria-controls="record-view" data-tab="orders">Orders</button>
+            <button role="tab" id="tab-invoices" aria-selected="false" aria-controls="record-view" data-tab="invoices">Invoices</button>
+            <button role="tab" id="tab-stock" aria-selected="false" aria-controls="record-view" data-tab="stock">Inventory</button>
+            <button role="tab" id="tab-customers" aria-selected="false" aria-controls="record-view" data-tab="customers">Customers</button>
+          </div>
+          <div id="record-view" role="tabpanel" aria-labelledby="tab-orders">
+            <form id="filter-form" class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="record-search" aria-label="Search ERP records" placeholder="Search orders…" maxlength="150"></label><select id="status-filter" aria-label="Filter status"><option value="">All statuses</option></select><button type="submit" class="filter-button" aria-label="Apply filters">↵</button></form>
+            <div id="table-error" class="notice error" role="alert" hidden></div>
+            <div class="table-wrap"><table><thead id="record-head"></thead><tbody id="record-body"><tr><td>Loading records…</td></tr></tbody></table></div>
+            <div class="table-footer"><span id="record-count" aria-live="polite">Loading…</span><div><button id="previous-page" aria-label="Previous page" disabled>←</button><button id="next-page" aria-label="Next page" disabled>→</button></div></div>
+          </div>
+          <div class="record-tip" hidden><span class="tip-icon" aria-hidden="true">✧</span><div><strong>A little context goes a long way.</strong><p>Open any record to see its details, or ask the assistant to connect the dots.</p><button id="acme-prompt" class="text-link">Explore Acme Office's activity <span aria-hidden="true">↗</span></button></div></div>
+          <div class="data-footer" hidden><span class="small-dot"></span> Fictional office supplies ERP<span>SQLite + MCP</span></div>
+        </section>
+      <footer class="page-footer" hidden><span>Built for clarity. Designed to keep you in control.</span><span>smartERP / Portfolio edition</span></footer>
+    </main>
+  </div>
+
+  <dialog id="record-dialog" aria-labelledby="detail-title"><div class="dialog-heading"><div><p class="eyebrow" id="detail-type">ERP RECORD</p><h2 id="detail-title">Record details</h2></div><button id="close-dialog" class="close-button" aria-label="Close record details">×</button></div><div id="record-detail"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
+
